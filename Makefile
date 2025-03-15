@@ -4,6 +4,8 @@ docker_up:
 .PHONY: docker_down
 docker_down:
 	docker compose down
-.PHONY: docker_exec
-docker_exec:
-	docker compose exec app /bin/bash
+.PHONY: run
+run:
+	docker compose exec -T app go run main.go < input.txt
+fmt:
+		docker compose exec app go fmt main.go
