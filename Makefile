@@ -9,4 +9,4 @@ run:
 	docker compose exec -T app go run main.go < input.txt
 .PHONY: fmt
 fmt:
-		docker compose exec app go fmt main.go
+	docker compose exec app go fmt main.go
