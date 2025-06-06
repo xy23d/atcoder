@@ -35,7 +35,6 @@ AtCoder Daily Training
     https://atcoder.jp/contests/adt_medium_20250501_1
       https://atcoder.jp/contests/adt_medium_20250501_1/tasks/abc395_d
     https://atcoder.jp/contests/adt_medium_20250506_1
-      https://atcoder.jp/contests/adt_medium_20250506_1/tasks/abc322_b
       https://atcoder.jp/contests/adt_medium_20250506_1/tasks/abc365_c
       https://atcoder.jp/contests/adt_medium_20250506_1/tasks/abc297_d
     https://atcoder.jp/contests/adt_medium_20250507_1
@@ -68,7 +67,16 @@ AtCoder Daily Training
       https://atcoder.jp/contests/adt_medium_20250529_1/tasks/abc363_c
       https://atcoder.jp/contests/adt_medium_20250529_1/tasks/abc290_c
       https://atcoder.jp/contests/adt_medium_20250529_1/tasks/abc374_d
-      
+    https://atcoder.jp/contests/adt_medium_20250603_1
+      https://atcoder.jp/contests/adt_medium_20250603_1/tasks/abc330_c
+      https://atcoder.jp/contests/adt_medium_20250603_1/tasks/abc345_d
+    https://atcoder.jp/contests/adt_medium_20250604_1
+      https://atcoder.jp/contests/adt_medium_20250604_1/tasks/abc400_c
+      https://atcoder.jp/contests/adt_medium_20250604_1/tasks/abc371_d
+    https://atcoder.jp/contests/adt_medium_20250605_1
+      https://atcoder.jp/contests/adt_medium_20250605_1/tasks/abc309_c
+      https://atcoder.jp/contests/adt_medium_20250605_1/tasks/abc362_d
+
 AtCoder Beginner Contest
   https://atcoder.jp/contests/abc399
     https://atcoder.jp/contests/abc399/tasks/abc399_e
