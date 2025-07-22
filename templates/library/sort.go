@@ -18,4 +18,7 @@ func main() {
 	sort.Slice(ns, func(i, j int) bool {
 		return ns[i] < ns[j]
 	})
+
+	ns := []int64{1, 2, 3}
+	sort.SearchInts(ns, 2) // 2
 }
