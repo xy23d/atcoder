@@ -23,7 +23,6 @@ AtCoder Daily Training
     https://atcoder.jp/contests/adt_medium_20250417_1
       https://atcoder.jp/contests/adt_medium_20250417_1/tasks/abc386_d
     https://atcoder.jp/contests/adt_medium_20250422_1
-      https://atcoder.jp/contests/adt_medium_20250422_1/tasks/abc270_c
       https://atcoder.jp/contests/adt_medium_20250422_1/tasks/abc229_c
       https://atcoder.jp/contests/adt_medium_20250422_1/tasks/abc222_d
     https://atcoder.jp/contests/adt_medium_20250423_3
@@ -74,8 +73,58 @@ AtCoder Daily Training
       https://atcoder.jp/contests/adt_medium_20250604_1/tasks/abc400_c
       https://atcoder.jp/contests/adt_medium_20250604_1/tasks/abc371_d
     https://atcoder.jp/contests/adt_medium_20250605_1
-      https://atcoder.jp/contests/adt_medium_20250605_1/tasks/abc309_c
       https://atcoder.jp/contests/adt_medium_20250605_1/tasks/abc362_d
+    https://atcoder.jp/contests/adt_medium_20250610_1
+      https://atcoder.jp/contests/adt_medium_20250610_1/tasks/abc390_c
+      https://atcoder.jp/contests/adt_medium_20250610_1/tasks/abc292_c
+      https://atcoder.jp/contests/adt_medium_20250610_1/tasks/abc395_d
+    https://atcoder.jp/contests/adt_medium_20250612_1
+      https://atcoder.jp/contests/adt_medium_20250612_1/tasks/abc404_c
+      https://atcoder.jp/contests/adt_medium_20250612_1/tasks/abc233_c
+      https://atcoder.jp/contests/adt_medium_20250612_1/tasks/abc298_d
+    https://atcoder.jp/contests/adt_medium_20250617_1
+      https://atcoder.jp/contests/adt_medium_20250617_1/tasks/abc369_c
+      https://atcoder.jp/contests/adt_medium_20250617_1/tasks/abc341_d
+    https://atcoder.jp/contests/adt_medium_20250618_1 *
+    https://atcoder.jp/contests/adt_medium_20250619_1
+      https://atcoder.jp/contests/adt_medium_20250619_1/tasks/abc264_c
+      https://atcoder.jp/contests/adt_medium_20250619_1/tasks/abc314_d
+    https://atcoder.jp/contests/adt_medium_20250624_1
+      https://atcoder.jp/contests/adt_medium_20250624_1/tasks/abc245_c
+      https://atcoder.jp/contests/adt_medium_20250624_1/tasks/abc332_d
+    https://atcoder.jp/contests/adt_medium_20250625_1
+      https://atcoder.jp/contests/adt_medium_20250625_1/tasks/abc376_c
+      https://atcoder.jp/contests/adt_medium_20250625_1/tasks/abc216_c
+    https://atcoder.jp/contests/adt_medium_20250626_1
+      https://atcoder.jp/contests/adt_medium_20250626_1/tasks/abc251_d
+    https://atcoder.jp/contests/adt_medium_20250702_1
+      https://atcoder.jp/contests/adt_medium_20250702_1/tasks/abc337_d
+    https://atcoder.jp/contests/adt_medium_20250703_1
+      https://atcoder.jp/contests/adt_medium_20250703_1/tasks/abc305_c
+      https://atcoder.jp/contests/adt_medium_20250703_1/tasks/abc246_d
+    https://atcoder.jp/contests/adt_medium_20250708_1
+      https://atcoder.jp/contests/adt_medium_20250708_1/tasks/abc382_c
+      https://atcoder.jp/contests/adt_medium_20250708_1/tasks/abc310_d
+    https://atcoder.jp/contests/adt_medium_20250709_1
+      https://atcoder.jp/contests/adt_medium_20250709_1/tasks/abc354_c
+      https://atcoder.jp/contests/adt_medium_20250709_1/tasks/abc267_c
+    https://atcoder.jp/contests/adt_medium_20250710_1
+      https://atcoder.jp/contests/adt_medium_20250710_1/tasks/abc250_d
+    https://atcoder.jp/contests/adt_medium_20250715_1
+      https://atcoder.jp/contests/adt_medium_20250715_1/tasks/abc383_b
+      https://atcoder.jp/contests/adt_medium_20250715_1/tasks/abc365_c
+      https://atcoder.jp/contests/adt_medium_20250715_1/tasks/codequeen2024_final_d
+    https://atcoder.jp/contests/adt_medium_20250716_1 *
+  hard
+    https://atcoder.jp/contests/adt_hard_20250717_1
+      https://atcoder.jp/contests/adt_hard_20250717_1/tasks/abc213_c
+      https://atcoder.jp/contests/adt_hard_20250717_1/tasks/abc255_d
+      https://atcoder.jp/contests/adt_hard_20250717_1/tasks/abc298_e
+      https://atcoder.jp/contests/adt_hard_20250717_1/tasks/abc342_f
+    https://atcoder.jp/contests/adt_hard_20250722_1
+      https://atcoder.jp/contests/adt_hard_20250722_1/tasks/abc357_c
+      https://atcoder.jp/contests/adt_hard_20250722_1/tasks/abc225_e
+      https://atcoder.jp/contests/adt_hard_20250722_1/tasks/abc259_f
 
 AtCoder Beginner Contest
   https://atcoder.jp/contests/abc399
@@ -90,3 +139,7 @@ AtCoder Beginner Contest
     https://atcoder.jp/contests/abc405/tasks/abc405_e
     https://atcoder.jp/contests/abc405/tasks/abc405_f
     https://atcoder.jp/contests/abc405/tasks/abc405_g
+  https://atcoder.jp/contests/abc409
+    https://atcoder.jp/contests/abc409/tasks/abc409_e
+    https://atcoder.jp/contests/abc409/tasks/abc409_f
+    https://atcoder.jp/contests/abc409/tasks/abc409_g
