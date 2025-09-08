@@ -9,4 +9,6 @@ func main() {
 	fmt.Scan(&n)
 
 	fmt.Println(n)
+
+	fmt.Sprintf("%d", int64(1))
 }
