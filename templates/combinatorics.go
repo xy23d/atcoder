@@ -20,3 +20,8 @@ func nPr(n int, r int) int {
 func nCr(n int, r int) int {
 	return nPr(n, r) / factorial(r)
 }
+
+// 三角数
+func tri(n int) {
+	n * (n + 1) / 2
+}
