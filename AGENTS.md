@@ -23,4 +23,5 @@
 - 重大なバグにつながりそうな点は遠慮せず指摘する
 - 変更内容とテスト結果は簡潔にまとめ、読みやすさを重視する
 - changed files 以外は変更・指摘しない
-- AI エージェントがコミットするときは、どのエージェントが作業したか分かるようコミットメッセージ末尾に次の `Co-authored-by` トレーラーを付ける: `Co-authored-by: Codex <chatgpt-codex-connector@users.noreply.github.com>`
+- AI エージェントがコミットするときは、どのエージェントが作業したか分かるようコミットメッセージ末尾に `Co-authored-by` を付ける
+  - codex: `Co-authored-by: Codex <chatgpt-codex-connector@users.noreply.github.com>`
