@@ -23,5 +23,5 @@
 - 重大なバグにつながりそうな点は遠慮せず指摘する
 - 変更内容とテスト結果は簡潔にまとめ、読みやすさを重視する
 - changed files 以外は変更・指摘しない
-- コミットメッセージには Codex を co-author として付ける（例: `Co-authored-by: Codex <chatgpt-codex-connector@users.noreply.github.com>`）
-- Co-authored-by のメールは GitHub 登録済みのものに統一し、アイコンが出るようにする
+- コミットメッセージには Codex を co-author として付ける（`Co-authored-by: Codex <chatgpt-codex-connector@users.noreply.github.com>` など）
+- Co-authored-by には GitHub アカウント `chatgpt-codex-connector` の noreply メール（`chatgpt-codex-connector@users.noreply.github.com`）を必ず使い、GitHub 側でアイコンが出るようにする
