@@ -24,3 +24,4 @@
 - 変更内容とテスト結果は簡潔にまとめ、読みやすさを重視する
 - changed files 以外は変更・指摘しない
 - コミットメッセージには `Co-authored-by: Codex <codex@example.com>` を付ける
+- Co-authored-by に記載するメールアドレスは GitHub に登録されているものを使い、アイコンが出るようにする
