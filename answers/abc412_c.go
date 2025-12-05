@@ -76,43 +76,47 @@ func execute(in *bufio.Reader, out *bufio.Writer) {
 	fmt.Fscan(in, &N)
 
 	ss := make([]int64, N)
-	for i := 0; i < N; i++ {
-		fmt.Fscan(in, &ss[i])
-	}
-
 	toNs := make([][]int, N)
 	for i := 0; i < N; i++ {
+		fmt.Fscan(in, &ss[i])
+
 		toNs[i] = []int{}
 
-		for j := 1; j < N; j++ {
-			if i == j {
-				continue
+		for j := 0; j < i; j ++ {
+			if ss[j] * 2 >= ss[i] {
+				toNs[j] = append(toNs[j], i)
 			}
 
-			if ss[i]*2 >= ss[j] {
+			if ss[i] + 2 >= ss[j] {
 				toNs[i] = append(toNs[i], j)
-
-				if i == 0 && j == N-1 {
-					fmt.Fprintln(out, 2)
-					return
-				}
 			}
 		}
 	}
 
 	mins := make([]int, N)
 	ns := []int{}
-	for _, i := range toNs[0] {
-		mins[i] = 2
-		ns = append(ns, i)
+	for _, v := range toNs[0] {
+		if v == N - 1 {
+			fmt.Fprintln(out, 2)
+			return
+		}
+
+		mins[v] = 2
+		ns = append(ns, v)
 	}
 
 	for len(ns) > 0 {
+		tns := []int{}
+		a := make([]bool, N)
+
 		for _, i := range ns {
 			n := mins[i]
-
-			tns := []int{}
 			for _, j := range toNs[i] {
+				if a[j] {
+					continue
+				}
+
+				a[j] = true
 				if j == N-1 {
 					fmt.Fprintln(out, n+1)
 					return
@@ -123,9 +127,9 @@ func execute(in *bufio.Reader, out *bufio.Writer) {
 					tns = append(tns, j)
 				}
 			}
-
-			ns = tns
 		}
+
+		ns = tns
 	}
 
 	fmt.Fprintln(out, -1)
