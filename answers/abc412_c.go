@@ -87,7 +87,7 @@ func execute(in *bufio.Reader, out *bufio.Writer) {
 				toNs[j] = append(toNs[j], i)
 			}
 
-			if ss[i] + 2 >= ss[j] {
+			if ss[i] * 2 >= ss[j] {
 				toNs[i] = append(toNs[i], j)
 			}
 		}
