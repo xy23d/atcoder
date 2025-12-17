@@ -1,9 +1,9 @@
-TARGET ?=
+TASK ?=
 
-ifeq ($(strip $(TARGET)),)
-GO_FILE := main.go
+ifeq ($(strip $(TASK)),)
+TARGET := main.go
 else
-GO_FILE := answers/$(TARGET).go
+TARGET := answers/$(TASK).go
 endif
 
 .PHONY: docker_up
@@ -14,7 +14,7 @@ docker_stop:
 	docker compose stop
 .PHONY: run
 run:
-	docker compose exec -T app go run $(GO_FILE) < input.txt
+	docker compose exec -T app go run $(TARGET) < input.txt
 .PHONY: fmt
 fmt:
-	docker compose exec app go fmt $(GO_FILE)
+	docker compose exec app go fmt $(TARGET)
