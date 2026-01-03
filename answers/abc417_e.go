@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/adt_hard_20251223_1/tasks/abc417_e
+
 package main
 
 import (
