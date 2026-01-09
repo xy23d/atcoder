@@ -15,32 +15,33 @@ func main() {
 
 	var N, H, W int
 	fmt.Fscan(in, &N, &H, &W)
-	abs := make([][]int, N)
+	abs := make([][2]int, N)
 
 	for i := 0; i < N; i++ {
-		var a, b int
-		fmt.Fscan(in, &a, &b)
-		abs[i] = []int{a, b}
+		fmt.Fscan(in, &abs[i][0], &abs[i][1])
 	}
 
-	exists := make([][]bool, H+1)
-	for i := 1; i <= H; i++ {
-		exists[i] = make([]bool, W+1)
+	exists := make([][]bool, H)
+	for i := 0; i < H; i++ {
+		exists[i] = make([]bool, W)
 	}
 
-	a := make([]bool, N)
-	for i := 0; i < N; i++ {
-		if abs[i][0] <= H && abs[i][1] <= W {
-			r := execute(i, 0, 0, abs[i][0], abs[i][1], N, H, W, abs, a, exists)
+	al := make([]bool, N)
+	for i := 1; i < 2; i++ {
+		a := abs[i][0] - 1
+		b := abs[i][1] - 1
+
+		if a <= H && b <= W {
+			r := execute(i, 0, 0, a, b, N, H, W, abs, al, cloneAABool(exists))
 			if r {
 				fmt.Fprintln(out, "Yes")
 				return
 			}
 		}
 
-		if abs[i][0] != abs[i][1] {
-			if abs[i][1] <= H && abs[i][0] <= W {
-				r := execute(i, 0, 0, abs[i][1], abs[i][0], N, H, W, abs, a, exists)
+		if a != b {
+			if b <= H && a <= W {
+				r := execute(i, 0, 0, b, a, N, H, W, abs, al, cloneAABool(exists))
 				if r {
 					fmt.Fprintln(out, "Yes")
 					return
@@ -52,66 +53,74 @@ func main() {
 	fmt.Fprintln(out, "No")
 }
 
-func execute(idx, h, w, mh, mw, N, H, W int, abs [][]int, a []bool, exists [][]bool) bool {
-	a[idx] = true
+func execute(idx, h, w, mh, mw, N, H, W int, abs [][2]int, al []bool, exists [][]bool) bool {
+	al[idx] = true
 
-	for mh > 0{
+	for mh >= 0 {
 		tMw := mw
-		for tMw > 0 {
+		for tMw >= 0 {
+			if exists[h+mh][w+tMw] {
+				return false
+			}
+
 			exists[h+mh][w+tMw] = true
+
 			tMw--
 		}
 		mh--
 	}
 
 	w = w + mw
-	for w == W{
-		h = h + 1
-		w = 0
-		for w < W {
-			if !exists[h][w+1] {
-				break
-			}
-			w++
-		}
 
-		if h == H && w == W {
-			return true
+	if w == W-1 {
+		w++
+		for w == W {
+			w = 0
+			h = h + 1
+			for w < W {
+				if !exists[h][w] {
+					break
+				}
+				w++
+			}
+
+			if h == H-1 && w == W {
+				return true
+			}
 		}
+	} else {
+		w = w + 1
 	}
 
 	for i := 0; i < N; i++ {
-		if a[i] {
+		if al[i] {
 			continue
 		}
 
-		if h+abs[i][0] <= H && w+abs[i][1] <= W {
-			r := execute(i, h, w, abs[i][0], abs[i][1], N, H, W, abs, cloneABool(a), cloneAABool(exists))
+		a := abs[i][0] - 1
+		b := abs[i][1] - 1
+		if h+a < H && w+b < W {
+			r := execute(i, h, w, a, b, N, H, W, abs, al, cloneAABool(exists))
 
 			if r {
 				return true
 			}
 		}
 
-		if h+abs[i][1] <= H && w+abs[i][0] <= W {
-			r := execute(i, h, w, abs[i][1], abs[i][0], N, H, W, abs, cloneABool(a), cloneAABool(exists))
+		if a != b {
+			if h+b < H && w+a < W {
+				r := execute(i, h, w, b, a, N, H, W, abs, al, cloneAABool(exists))
 
-			if r {
-				return true
+				if r {
+					return true
+				}
 			}
 		}
 	}
+
+	al[idx] = false
+
 	return false
-}
-
-func cloneABool(bs []bool) []bool {
-	c := make([]bool, len(bs))
-
-	for i := 0; i < len(bs); i++ {
-		c[i] = bs[i]
-	}
-
-	return c
 }
 
 func cloneAABool(bss [][]bool) [][]bool {
