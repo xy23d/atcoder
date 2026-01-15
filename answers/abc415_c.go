@@ -25,50 +25,41 @@ func execute(in *bufio.Reader, out *bufio.Writer) {
 	var N int
 	fmt.Fscan(in, &N)
 
-	var S int
+	var S string
 	fmt.Fscan(in, &S)
 
-	a := make([]bool, N+1)
-	if subExecute(N, 0, a, S) {
-		fmt.Println(out, "Yes")
+	limit := 1 << N
+	goal := limit - 1
+
+	reachable := make([]bool, limit)
+	reachable[0] = true
+
+	for mask := 1; mask < limit; mask++ {
+		if S[mask-1] == '1' {
+			reachable[mask] = false
+			continue
+		}
+
+		canReach := false
+		for k := 0; k < N; k++ {
+			if (mask>>k)&1 == 1 {
+				prev := mask ^ (1 << k)
+
+				if reachable[prev] {
+					canReach = true
+					break
+				}
+			}
+		}
+
+		if canReach {
+			reachable[mask] = true
+		}
+	}
+
+	if reachable[goal] {
+		fmt.Fprintln(out, "Yes")
 	} else {
-		fmt.Println(out, "No")
+		fmt.Fprintln(out, "No")
 	}
-}
-
-func subExecute(N, total int, a []bool, S byte) bool {
-	for i := 1; i < N; i++ {
-		if a[i] {
-			continue
-		}
-
-		if (total+i)<<1&S > 1 {
-			continue
-		}
-
-		a[i] = true
-
-		if check(a) {
-			return true
-		}
-
-		r := subExecute(N, total+i, a, S)
-		if r {
-			return true
-		}
-
-		a[i] = false
-	}
-
-	return false
-}
-
-func check(N int, a []bool) bool {
-	for i := 1; i <= N; i++ {
-		if !a[i] {
-			return false
-		}
-	}
-
-	return true
 }
