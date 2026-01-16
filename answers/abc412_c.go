@@ -1,54 +1,4 @@
 // https://atcoder.jp/contests/adt_hard_20251125_1/tasks/abc412_c
-// 問題文
-// 1 から
-// N までの番号がついた
-// N 個のドミノがあります。ドミノ
-// i の大きさは
-// S
-// i
-// ​
-//   です。
-// いくつかのドミノを左右一列に並べたあとにドミノを倒すことを考えます。ドミノ
-// i が右に向けて倒れる時、ドミノ
-// i のすぐ右に置かれているドミノの大きさが
-// 2S
-// i
-// ​
-//   以下ならばそのドミノも右に向けて倒れます。
-
-// あなたは
-// 2 個以上のドミノを選んで左右一列に並べることにしました。ただし、ドミノの並べ方は次の条件を満たす必要があります。
-
-// 一番左のドミノはドミノ
-// 1 である。
-// 一番右のドミノはドミノ
-// N である。
-// ドミノ
-// 1 のみを右に向けて倒した時に、最終的にドミノ
-// N も右に向けて倒れる。
-// 条件を満たすドミノの並べ方は存在しますか？また、存在する場合は最小で何個のドミノを並べる必要がありますか？
-
-// T 個のテストケースが与えられるので、それぞれについて問題を解いてください。
-
-// 制約
-// 1≤T≤10
-// 5
-
-// 2≤N≤2×10
-// 5
-
-// 1≤S
-// i
-// ​
-//  ≤10
-// 9
-
-// 全てのテストケースに対する
-// N の総和は
-// 2×10
-// 5
-//   以下
-// 入力される値は全て整数
 
 package main
 
@@ -56,6 +6,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"sort"
 )
 
 func main() {
@@ -75,61 +26,62 @@ func execute(in *bufio.Reader, out *bufio.Writer) {
 	var N int
 	fmt.Fscan(in, &N)
 
-	ss := make([]int64, N)
-	toNs := make([][]int, N)
+	var start int64
+	var end int64
+
+	ss := make([]int64, N-1)
 	for i := 0; i < N; i++ {
-		fmt.Fscan(in, &ss[i])
+		var n int64
+		fmt.Fscan(in, &n)
 
-		toNs[i] = []int{}
-
-		for j := 0; j < i; j ++ {
-			if ss[j] * 2 >= ss[i] {
-				toNs[j] = append(toNs[j], i)
-			}
-
-			if ss[i] * 2 >= ss[j] {
-				toNs[i] = append(toNs[i], j)
-			}
-		}
-	}
-
-	mins := make([]int, N)
-	ns := []int{}
-	for _, v := range toNs[0] {
-		if v == N - 1 {
-			fmt.Fprintln(out, 2)
-			return
+		if i == 0 {
+			start = n
+			continue
 		}
 
-		mins[v] = 2
-		ns = append(ns, v)
+		if i == N-1 {
+			end = n
+			continue
+		}
+
+		ss[i-1] = n
 	}
 
-	for len(ns) > 0 {
-		tns := []int{}
-		a := make([]bool, N)
+	current := start * 2
+	ans := 2
 
-		for _, i := range ns {
-			n := mins[i]
-			for _, j := range toNs[i] {
-				if a[j] {
-					continue
-				}
+	if current >= end {
+		fmt.Fprintln(out, ans)
+		return
+	}
 
-				a[j] = true
-				if j == N-1 {
-					fmt.Fprintln(out, n+1)
+	sort.Slice(ss, func(i, j int) bool {
+		return ss[i] < ss[j]
+	})
+
+	idx := -1
+	for {
+		exits := false
+
+		for i := N - 1 - 1; i > idx; i-- {
+			if current >= ss[i] {
+				ans++
+
+				if ss[i]*2 >= end {
+					fmt.Fprintln(out, ans)
 					return
 				}
 
-				if mins[j] == 0 || mins[j] > n+1 {
-					mins[j] = n + 1
-					tns = append(tns, j)
-				}
+				exits = true
+				current = ss[i] * 2
+				idx = i
+				break
 			}
 		}
 
-		ns = tns
+		if !exits {
+			break
+		}
 	}
 
 	fmt.Fprintln(out, -1)
