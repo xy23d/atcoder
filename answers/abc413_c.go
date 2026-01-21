@@ -34,21 +34,28 @@ func main() {
 			var k int
 			fmt.Fscan(in, &k)
 
-			ans := 0
-			for j := idx; j < len(xs); j++ {
-				c := xs[j][0]
-				x := xs[j][1]
+			ans := int64(0)
+			for {
+				c := xs[idx][0]
+				x := xs[idx][1]
 
-				if c > k {
-					ans += x * k
-					xs[j][0] = c - k
-					fmt.Fprintln(out, ans)
-					idx = j
+				if c - k > 0 {
+					ans += int64(k * x)
+					xs[idx][0] = c - k
 					break
 				} else {
-					ans += c * x
+					ans += int64(c * x)
+					k = k - c
+					if k == 0 {
+						idx++
+						break
+					}
 				}
+
+				idx++
 			}
+
+			fmt.Fprintln(out, ans)
 		}
 	}
 }
