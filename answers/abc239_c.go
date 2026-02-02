@@ -16,45 +16,28 @@ func main() {
 	var x1, y1, x2, y2 int
 	fmt.Fscan(in, &x1, &y1, &x2, &y2)
 
-	if x1 == x2 && y1 == y2 {
-		fmt.Fprintln(out, "Yes")
-		return
+	ns := []int{1, 2, -1, -2}
+	dss := [][]int{}
+
+	for i := 0; i < len(ns); i++ {
+		for j := 0; j < len(ns); j++ {
+			if ns[i] == ns[j] || ns[i] == (-1) * ns[j] {
+				continue
+			}
+
+			dss = append(dss, []int{ns[i], ns[j]})
+		}
 	}
 
-	if x1 == y2 && y1 == x2 {
-		fmt.Fprintln(out, "Yes")
-		return
-	}
 
-	nss := []int{}
-	nss = append(nss, [1, 2])
-	nss = append(nss, [2, 1])
+	for _, ds := range dss {
+		cx := x1 + ds[0]
+		cy := y1 + ds[1]
 
-	for _, ns := range nss {
-		n1 := nss[0]
-		n2 := nss[1]
-
-		if x1 + n2 == y2 - n1 && y1 - n1
-	}
-
-	if x1+2 == y2-1 && y1+1 == x2-2 {
-		fmt.Fprintln(out, "Yes")
-		return
-	}
-
-	if x1-2 == y2+1 && y1-1 == x2+2 {
-		fmt.Fprintln(out, "Yes")
-		return
-	}
-
-	if x1+1 == y2-2 && y1+2 == x2-1 {
-		fmt.Fprintln(out, "Yes")
-		return
-	}
-
-	if x1-1 == y2+2 && y1-2 == x2+1 {
-		fmt.Fprintln(out, "Yes")
-		return
+		if (cx - x2) * (cx -x2) + (cy - y2) * (cy - y2) == 5 {
+			fmt.Fprintln(out, "Yes")
+			return
+		}
 	}
 
 	fmt.Fprintln(out, "No")
