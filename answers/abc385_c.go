@@ -16,24 +16,25 @@ func main() {
 	var N int
 	fmt.Fscan(in, &N)
 
-	ns := []int{}
+	ns := make([]int, N)
+	nUnique := []int{}
 	a := make(map[int]bool)
 	nIdx := make(map[int][]int)
 
 	for i := 0; i < N; i++ {
-		var n int
-		fmt.Fscan(in, &n)
+		fmt.Fscan(in, &ns[i])
+		n := ns[i]
 		if !a[n] {
 			a[n] = true
-			ns = append(ns, n)
+			nUnique = append(nUnique, n)
 		}
 
 		nIdx[n] = append(nIdx[n], i)
 	}
 
 	ans := 0
-	for _, n := range ns {
-		t := execute(nIdx[n])
+	for _, n := range nUnique {
+		t := execute(n, N, ns, nIdx[n])
 
 		if ans < t {
 			ans = t
@@ -43,29 +44,23 @@ func main() {
 	fmt.Fprintln(out, ans)
 }
 
-func execute(ns []int) int {
+func execute(n, N int, ns, nIdx []int) int {
 	ans := 1
 
-	for i := 0; i < len(ns); i++ {
-		idx := ns[i]
-		for j := i + 1; j < len(ns); j++ {
-			idx2 := ns[j]
+	for i := 0; i < len(nIdx); i++ {
+		idx := nIdx[i]
+		for j := i + 1; j < len(nIdx); j++ {
+			idx2 := nIdx[j]
 
 			d := idx2 - idx
-			b := idx2
 			t := 2
 
-			for k := j+1; k < len(ns); k++ {
-				idx3 := ns[k]
-
-				if b + d < idx3 {
+			for k := idx2 + d; k < N; k = k + d {
+				if ns[k] != n {
 					break
 				}
 
-				if idx3 == b + d {
-					b = idx3
-					t++
-				}
+				t++
 			}
 
 			if ans < t {
