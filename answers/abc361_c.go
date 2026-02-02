@@ -17,7 +17,7 @@ func main() {
 	var N, K int
 	fmt.Fscan(in, &N, &K)
 
-	if N-K == 1 {
+	if N - K == 1 {
 		fmt.Fprintln(out, 0)
 		return
 	}
@@ -29,27 +29,13 @@ func main() {
 
 	sort.Ints(as)
 
-	ans := 0
-	for i := 0; i < N-1; i++ {
-		idx := i + (N - K - 1)
-
-		if idx >= N {
-			break
-		}
-
-		t := abs(as[i] - as[idx])
-		if ans == 0 || ans > t {
+	ans := 2000000000
+	for i := 0; i <= K; i++ {
+		t := as[i+N-1-K] - as[i]
+		if ans > t {
 			ans = t
 		}
 	}
 
 	fmt.Fprintln(out, ans)
-}
-
-func abs(n int) int {
-	if n < 0 {
-		return (-1) * n
-	}
-
-	return n
 }
