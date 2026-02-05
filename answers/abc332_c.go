@@ -33,13 +33,15 @@ func main() {
 			if max < t {
 				max = t
 			}
+
+			t = 0
 		}
 	}
 
 	if max < t {
 		max = t
 	}
-
+	
 	t = max + M
 	for i := 0; i < N; i++ {
 		if chars[i] == "1" || chars[i] == "2" {
