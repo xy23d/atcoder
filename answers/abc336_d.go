@@ -8,6 +8,20 @@ import (
 	"os"
 )
 
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
 func main() {
 	in := bufio.NewReader(os.Stdin)
 	out := bufio.NewWriter(os.Stdout)
@@ -16,55 +30,28 @@ func main() {
 	var N int
 	fmt.Fscan(in, &N)
 
-	as := make([]int, N)
+	A := make([]int, N)
 	for i := 0; i < N; i++ {
-		fmt.Fscan(in, &as[i])
+		fmt.Fscan(in, &A[i])
 	}
 
-	ans := -1
-	for i := 0; i < N; i++ {
-		center := false
-		tAns := -1
-		t := -1
+	L := make([]int, N)
+	R := make([]int, N)
 
-    as[i] = 1
-		for j := i + 1; j < N; j++ {
-			if !center {
-				if as[j-1]+1 <= as[j] {
-					continue
-				}
-				tAns = as[j] + 1
-				t = tAns - 1
-				if as[j] == 1 {
-					break
-				}
-				center = true
-			} else {
-				if j+1 >= N {
-					ans = -1
-					break
-				}
-
-				if as[j]-1 <= as[j+1] {
-					t--
-					if t == 0 {
-						break
-					}
-					continue
-				}
-
-				break
-			}
-		}
-
-		if ans < tAns {
-			ans = tAns
-		}
+	L[0] = min(A[0], 1)
+	for i := 1; i < N; i++ {
+		L[i] = min(A[i], L[i-1]+1)
 	}
 
-  if ans != -1 {
-  	fmt.Fprintln(out, ans)
-  } else {
-    fmt.Fprintln(out, (N + 1) / 2)
-  }
+	R[N-1] = min(A[N-1], 1)
+	for i := N - 2; i >= 0; i-- {
+		R[i] = min(A[i], R[i+1]+1)
+	}
+
+	ans := 0
+	for i := 0; i < N; i++ {
+		ans = max(ans, min(L[i], R[i]))
+	}
+
+	fmt.Fprintln(out, ans)
 }
