@@ -161,6 +161,8 @@ AtCoder Daily Training
   all
     https://atcoder.jp/contests/adt_all_20260217_1
     https://atcoder.jp/contests/adt_all_20260218_1
+    https://atcoder.jp/contests/adt_all_20260318_1
+    https://atcoder.jp/contests/adt_all_20260319_1
 
 AtCoder Beginner Contest
   https://atcoder.jp/contests/abc399
